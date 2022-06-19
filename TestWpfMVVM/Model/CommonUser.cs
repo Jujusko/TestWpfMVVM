@@ -35,11 +35,5 @@ namespace TestWpfMVVM.Model
         }
         public CommonUser() => _tranzactions = new();
 
-
-
-        //public virtual ICollection<Tranzaction>
-        //    Products
-        //{ get; private set; } =
-        //    new ObservableCollection<Tranzaction>();
     }
 }
