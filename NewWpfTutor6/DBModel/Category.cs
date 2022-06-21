@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp1
+namespace NewWpfTutor6.DBModel
 {
-    public class Interests
+    public class Category
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public int UserId { get; set; }
-        public virtual Users User { get; set; }
+        //public 
     }
 }

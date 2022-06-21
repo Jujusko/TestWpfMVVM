@@ -5,9 +5,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using TestWpfMVVM.Helpers;
 
-namespace TestWpfMVVM.ViewModel
+namespace NewWpfTutor6.ViewModel
 {
     public abstract class BaseViewModel : MyNotifyPropChanged
     {
