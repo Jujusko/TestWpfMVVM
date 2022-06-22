@@ -9,16 +9,20 @@ using NewWpfTutor6.Commands;
 using NewWpfTutor6.DBLay;
 using NewWpfTutor6.DBModel;
 using NewWpfTutor6.Helpers;
+using NewWpfTutor6.Helpers.WindowServices;
 using NewWpfTutor6.UIModels;
+using NewWpfTutor6.ViewModel.PopupWindowViews;
 
 namespace NewWpfTutor6.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+
+        IAnotherWindowService openTranzWindow = new AddTranzactionWindowService();
+
         private AppDBContext dBContext = new();
 
         private UserUI _user;
-        private User dbHelper;
         private ObservableCollection<TranzactionUI> _tranzactions;
         public ObservableCollection<TranzactionUI> Tranzactions
         {
@@ -49,12 +53,13 @@ namespace NewWpfTutor6.ViewModel
         public MainViewModel(UserUI user)
         {
             _user = user;
-            _newTranz = new();
+            //_newTranz = new();
             _tranzactions = new();
-            _selectedTranz = new();
+            _selectedTranz = new(0, "qwe");
             User userId = dBContext.Users.FirstOrDefault(x => x.Name == _user.Name);
+            _user.Id = userId.Id;
             _user.Balance = userId.Balance;
-            dbHelper = userId;
+            //dbHelper = userId;
             var dbTranzes = dBContext.Tranzactions.Where(x => x.UserId == userId.Id).ToArray();
             foreach (var tr in dbTranzes)
             {
@@ -72,14 +77,15 @@ namespace NewWpfTutor6.ViewModel
                 return _addTranzactionCommand ??
                   (_addTranzactionCommand = new RelayCommand(obj =>
                   {
-                      var toDb = CustomMapper.GetInstance().Map<Tranzaction>(_newTranz);
-                      toDb.User = dbHelper;
+                      //var toDb = CustomMapper.GetInstance().Map<Tranzaction>(_newTranz);
+                      //toDb.User = dbHelper;
 
-                      Tranzactions.Add(new TranzactionUI(NewTranz.Cost, NewTranz.Name));
-                      dBContext.Tranzactions.Add(toDb);
-                      dbHelper.Balance -= toDb.Cost;
-                      dBContext.SaveChanges();
-                      _user.Balance -= toDb.Cost;
+                      //Tranzactions.Add(new TranzactionUI(NewTranz.Cost, NewTranz.Name));
+                      //dBContext.Tranzactions.Add(toDb);
+                      //dbHelper.Balance -= toDb.Cost;
+                      //dBContext.SaveChanges();
+                      //_user.Balance -= toDb.Cost;
+                      ExecuteShowWindow();
                   }));
             }
         }
@@ -90,7 +96,6 @@ namespace NewWpfTutor6.ViewModel
         {
             get
             {
-                var a = 1;
                 return _removeTranzactionCommand ??
                   (_removeTranzactionCommand = new RelayCommand(obj =>
                   {
@@ -101,6 +106,12 @@ namespace NewWpfTutor6.ViewModel
                       dBContext.SaveChanges();
                   }));
             }
+        }
+
+        private void ExecuteShowWindow()
+        {
+            AddTranzactionViewModel vm = new(_user);
+            openTranzWindow.ShowWindowService(vm);
         }
     }
 }

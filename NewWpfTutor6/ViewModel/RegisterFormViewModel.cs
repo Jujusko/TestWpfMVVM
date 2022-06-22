@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using NewWpfTutor6.Commands;
 using NewWpfTutor6.DBLay;
 using NewWpfTutor6.DBModel;
@@ -20,6 +21,7 @@ namespace NewWpfTutor6.ViewModel
         IAnotherWindowService windowHelp = new MainWindowService();
 
         public bool CanClose = false;
+
 
 
         private UserUI _user;

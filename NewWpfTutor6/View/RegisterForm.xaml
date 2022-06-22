@@ -12,10 +12,13 @@
         <viewmodel:RegisterFormViewModel/>
     </Window.DataContext>
     <Grid>
-        <TextBox HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" Text="{Binding Path=User.Name}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="{Binding Path=User.Balance}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,171,0,0" VerticalAlignment="Top" Width="120" Command="{Binding Path=AcceptCommand}"/>
-
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="109*"/>
+            <RowDefinition Height="325*"/>
+        </Grid.RowDefinitions>
+        <TextBox HorizontalAlignment="Center" Margin="0,108,0,0" TextWrapping="Wrap" Text="{Binding Path=User.Name}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,167,0,0" TextWrapping="Wrap" Text="{Binding Path=User.Balance}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,221,0,0" VerticalAlignment="Top" Width="120" Command="{Binding Path=AcceptCommand}" Height="27" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Designed by TanG" VerticalAlignment="Bottom" Grid.Row="1"/>
     </Grid>
 </Window>

@@ -37,10 +37,10 @@ namespace NewWpfTutor6.UIModels
             set => SetProperty(ref _name, value);
         }
 
-        public TranzactionUI()
-        {
+        //public TranzactionUI()
+        //{
 
-        }
+        //}
         public TranzactionUI(double cost, string name)
         {
             Cost = cost;

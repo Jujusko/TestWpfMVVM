@@ -21,7 +21,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="Tranzactions" Grid.Column="1" ItemsSource="{Binding Path=Tranzactions}" SelectedItem="{Binding Path=SelectedTranz}" Grid.RowSpan="2" Margin="0,87,0,0">
+        <ListBox x:Name="Tranzactions" Grid.Column="1" ItemsSource="{Binding Path=Tranzactions}" SelectedItem="{Binding Path=SelectedTranz, UpdateSourceTrigger=PropertyChanged}" Grid.RowSpan="2" Margin="0,87,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
@@ -36,8 +36,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="153,10,0,0" TextWrapping="Wrap" Text="Текущий баланс" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="153,26,0,0" TextWrapping="Wrap" Text="{Binding User.Balance}" VerticalAlignment="Top"/>
         <Button Grid.Column="1" Content="Добавить транзакцию" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Command="{Binding Path=AddTranzactionCommand}"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="37,10,0,0" TextWrapping="Wrap" Text="{Binding Path=NewTranz.Name}" VerticalAlignment="Top" Width="120"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="37,33,0,0" TextWrapping="Wrap" Text="{Binding Path=NewTranz.Cost}" VerticalAlignment="Top" Width="120"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="37,10,0,0" TextWrapping="Wrap" Text="{Binding Path=SelectedTranz.Name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="37,33,0,0" TextWrapping="Wrap" Text="{Binding Path=SelectedTranz.Cost, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="315,165,0,0" Grid.Row="1" VerticalAlignment="Top" Width="0"/>
         <Button Grid.Column="1" Content="Button" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Command="{Binding Path=RemoveTranzactionCommand }" CommandParameter="{Binding SelectedTranz}"/>
     </Grid>

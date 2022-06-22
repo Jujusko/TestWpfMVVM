@@ -1,0 +1,19 @@
+﻿<Window x:Class="NewWpfTutor6.View.PopUpWindows.AddTranzaction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:winCloser="clr-namespace:NewWpfTutor6.Helpers"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewWpfTutor6.View.PopUpWindows" xmlns:popupwindowviews="clr-namespace:NewWpfTutor6.ViewModel.PopupWindowViews"
+        mc:Ignorable="d"
+        Title="AddTranzaction" Height="200" Width="200" winCloser:WindowCloser.EnableWindowClosing="True">
+    <!--<Window.DataContext>
+        <popupwindowviews:AddTranzactionViewModel></popupwindowviews:AddTranzactionViewModel>
+    </Window.DataContext>-->
+    <Grid>
+        <Button Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Command="{Binding Path=AddTranzactionCommand}"/>
+        <TextBox HorizontalAlignment="Center" Margin="20" TextWrapping="Wrap" Text="{Binding Path=Tranzaction.Name}" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Center" Margin="40" TextWrapping="Wrap" Text="{Binding Path=Tranzaction.Cost}" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
